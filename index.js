@@ -20,13 +20,24 @@ app.get('/', function (req, res) {
 });
 app.post('/add', async function (req, res) {
     console.log(req.body);
+    
     const {nam, ag} = req.body;
     await pool.query('INSERT INTO tab1 SET ?',{
         name:nam,
         age:Number(ag)
     });
-    res.json({ success: true });
-   //res.redirect('http://truruki.ru/');
+
+    if(req.header('t')==='b') {
+        res.json({ success: true });
+    } else {
+        res.redirect('http://truruki.ru/');
+    }
+
+    
+   //
+   console.log("мой заголовок"+req.header('t'));
+
+
 });
 app.listen(30333, ()=> {
     console.log("It's started", new Date());

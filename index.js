@@ -25,7 +25,8 @@ app.post('/add', async function (req, res) {
         name:nam,
         age:Number(ag)
     });
-   res.redirect('http://truruki.ru/');
+    res.json({ success: true });
+   //res.redirect('http://truruki.ru/');
 });
 app.listen(30333, ()=> {
     console.log("It's started", new Date());

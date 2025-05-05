@@ -1,4 +1,4 @@
-name: MB
+name: MBa
 on: 
   workflow_dispatch    
 

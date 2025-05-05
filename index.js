@@ -1,5 +1,6 @@
 const express = require ('express');
 const querystring = require('querystring');
+const cors = require('cors');
 const mysql2 = require ('mysql2/promise');
 const pool = mysql2.createPool ({
     host: 'localhost',
@@ -8,6 +9,7 @@ const pool = mysql2.createPool ({
     password: 'password',
 });
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
